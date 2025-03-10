@@ -6,11 +6,30 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Prerequisites
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Before you begin, ensure you have met the following requirements:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- You have installed the latest version of [Flutter 3.27.3 SDK]
+
+
+## Installation
+
+Follow these steps to set up and run the project:
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/ASContributor/messageApp.git
+    cd message_app
+    ```
+
+2. **Install dependencies**:
+    ```bash
+    flutter pub get
+    ```
+
+3. **Run the app**:
+    ```bash
+    flutter run
+    ```
+
