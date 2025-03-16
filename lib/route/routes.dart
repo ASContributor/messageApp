@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:message_app/blocs/post/post_bloc.dart';
+import 'package:message_app/route/custome_route_animation.dart';
 import 'package:message_app/services/firestore_service.dart';
 
-import 'ui/views/chatscreen.dart';
-import 'ui/views/login_view.dart';
-import 'ui/views/signup_view.dart';
+import '../ui/views/chatscreen.dart';
+import '../ui/views/login_view.dart';
+import '../ui/views/signup_view.dart';
 
 class AppRoutes {
   static const String login = '/login';
@@ -15,18 +16,24 @@ class AppRoutes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case login:
-        return MaterialPageRoute(builder: (_) => LoginView());
+        return CustomeRouteAnimation(
+            pageRouteBuilder: (context, animation, secondAnimation) =>
+                LoginView());
       case signup:
-        return MaterialPageRoute(builder: (_) => SignUpView());
+        return CustomeRouteAnimation(
+            pageRouteBuilder: (context, animation, secondAnimation) =>
+                SignUpView());
       case chat:
-        return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                create: (context) =>
-                    PostBloc(FirestoreService())..add(LoadPosts()),
-                child: Chat()));
+        return CustomeRouteAnimation(
+          pageRouteBuilder: (context, animation, secondAnimation) =>
+              BlocProvider(
+                  create: (context) =>
+                      PostBloc(FirestoreService())..add(LoadPosts()),
+                  child: Chat()),
+        );
       default:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(
+        return CustomeRouteAnimation(
+          pageRouteBuilder: (context, animation, secondAnimation) => Scaffold(
             body: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -36,7 +43,7 @@ class AppRoutes {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushAndRemoveUntil(
-                        _,
+                        context,
                         MaterialPageRoute(builder: (_) => LoginView()),
                         (_) => false);
                   },

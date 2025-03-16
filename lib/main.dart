@@ -7,7 +7,7 @@ import 'blocs/auth/auth_bloc.dart';
 import 'config/theme/dark.dart';
 import 'config/theme/light.dart';
 import 'firebase_options.dart';
-import 'routes.dart';
+import 'route/routes.dart';
 import 'services/firebase_auth_service.dart';
 import 'services/firebase_messaging_service.dart';
 import 'services/firestore_service.dart';
